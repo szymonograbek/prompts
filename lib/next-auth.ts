@@ -11,4 +11,15 @@ export const authOptions: AuthOptions = {
   pages: {
     signIn: "signin",
   },
+  callbacks: {
+    signIn: async ({ account, profile }) => {
+      const permittedEmails = process.env.PERMITTED_EMAILS?.split(",");
+
+      if (account?.provider === "google" && profile?.email && permittedEmails) {
+        return permittedEmails.includes(profile.email);
+      }
+
+      return true;
+    },
+  },
 };
