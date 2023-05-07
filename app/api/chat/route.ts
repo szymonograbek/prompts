@@ -31,7 +31,8 @@ export async function POST(request: Request) {
   let tokens = 0;
 
   const chat = new ChatOpenAI({
-    temperature: 0,
+    temperature: requestBody.params.temperature,
+    maxTokens: requestBody.params.maxTokens,
     modelName: requestBody.model,
     callbacks: [
       {
