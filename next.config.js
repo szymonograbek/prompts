@@ -11,7 +11,7 @@ const nextConfig = {
     serverActions: true
   },
   webpack: function(config, option) {
-    config.experiments = { asyncWebAssembly: true };
+    config.experiments = { asyncWebAssembly: true, layers: true, ...config.experiments };
     return config;
   }
 }
