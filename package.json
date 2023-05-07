@@ -32,5 +32,8 @@
   "devDependencies": {
     "eslint-config-prettier": "^8.8.0",
     "prettier": "2.8.8"
+  },
+  "browser": {
+    "crypto": false
   }
 }
