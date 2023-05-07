@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
+export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   colorScheme?: "slate" | "emerald";
   variant?: "ghost" | "solid";
   rightIcon?: React.ReactNode;

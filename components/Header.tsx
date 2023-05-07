@@ -10,7 +10,7 @@ export async function Header() {
     <header className="h-[56px] flex justify-end items-center px-4">
       {session && (
         <HeaderUserDropdown>
-          <Button className="flex items-center" variant="ghost">
+          <Button className="flex items-center px-2 -mr-2" variant="ghost">
             <span className="text-slate-800 mr-4">{session.user?.name}</span>
             <Image
               src={session.user?.image ?? ""}
