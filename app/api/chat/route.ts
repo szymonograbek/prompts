@@ -7,8 +7,16 @@ import { NextResponse } from "next/server";
 import { ChatOpenAI } from "langchain/chat_models/openai";
 
 import { HumanChatMessage, LLMResult } from "langchain/schema";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/next-auth";
 
 export async function POST(request: Request) {
+  const session = await getServerSession(authOptions);
+
+  if (!session) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const requestBody: PromptRequest = await request.json();
 
   const parseResult = promptRequestSchema.safeParse(requestBody);
