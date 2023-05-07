@@ -9,6 +9,10 @@ const nextConfig = {
   },
   experimental: {
     serverActions: true
+  },
+  webpack: function(config, option) {
+    config.experiments = { asyncWebAssembly: true };
+    return config;
   }
 }
 
