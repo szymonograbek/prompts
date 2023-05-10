@@ -15,3 +15,11 @@ export interface PromptResponse {
   response: string;
   tokens: number;
 }
+
+export const autoGPTRequestSchema = z.object({
+  goal: z.string(),
+});
+
+export type AutoGPTRequest = z.infer<typeof autoGPTRequestSchema>;
+
+export interface AutoGPTResponse {}

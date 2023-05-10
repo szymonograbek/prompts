@@ -43,12 +43,12 @@ export function ChatSettings({
                 name="price"
                 id="price"
                 className="w-full rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                placeholder="0"
+                placeholder="0-1"
                 min={0}
                 max={1}
                 step={0.1}
                 value={temperature}
-                onChange={(e) => setTemperature(parseInt(e.target.value, 10))}
+                onChange={(e) => setTemperature(parseFloat(e.target.value))}
               />
             </div>
           </div>
@@ -65,7 +65,7 @@ export function ChatSettings({
                 name="maxTokens"
                 id="maxTokens"
                 className="w-full rounded-md border-0 py-1.5 px-2 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                placeholder="0"
+                placeholder="0-4000"
                 min={1}
                 max={4000}
                 step={1}

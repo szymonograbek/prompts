@@ -1,40 +1,37 @@
 "use client";
 
 import { useState } from "react";
-import { ModelSelect, MODELS } from "./ModelSelect";
-import { PromptInput } from "./PromptInput";
 import { Button } from "@/components/Button";
-import { PromptRequest, PromptResponse } from "@/features/types";
+import {
+  AutoGPTRequest,
+  PromptRequest,
+  PromptResponse,
+} from "@/features/types";
 import { Heading } from "@/components/Heading";
 import Loader from "@/components/Loader";
-import { ChatSettings } from "./ChatSettings";
-import { getChatResponse } from "../actions/chat";
+import { PromptInput } from "@/features/chat-gpt/components/PromptInput";
 
-export function ChatPrompt() {
-  const [model, setModel] = useState(MODELS[0]);
+export function AutoGPTPrompt() {
   const [prompt, setPrompt] = useState("");
   const [response, setResponse] = useState("");
-  const [tokens, setTokens] = useState(0);
   const [isPending, setPending] = useState(false);
-  const [openAIParams, setOpenAIParams] = useState<PromptRequest["params"]>({
-    temperature: 0,
-    maxTokens: 256,
-  });
 
   const onPromptSubmit = async () => {
     setPending(true);
 
-    const params: PromptRequest = {
-      model: model.name,
-      prompt,
-      params: openAIParams,
+    const body: AutoGPTRequest = {
+      goal: prompt,
     };
 
     try {
-      const { response, tokens } = await getChatResponse(params);
+      const response = await fetch("/api/autogpt", {
+        method: "POST",
+        body: JSON.stringify(body),
+      });
 
-      setResponse(response);
-      setTokens(tokens);
+      const responseData: PromptResponse = await response.json();
+
+      setResponse(responseData.response);
     } catch (e) {
       console.log(e);
     } finally {
@@ -44,21 +41,6 @@ export function ChatPrompt() {
 
   return (
     <div className="flex flex-col items-start">
-      <div className="mb-2 flex">
-        <div className="mr-2">
-          <ModelSelect selectedModel={model} onModelSelect={setModel} />
-        </div>
-        <ChatSettings
-          temperature={openAIParams.temperature}
-          setTemperature={(temp) =>
-            setOpenAIParams((prev) => ({ ...prev, temperature: temp }))
-          }
-          maxTokens={openAIParams.maxTokens}
-          setMaxTokens={(tokens) =>
-            setOpenAIParams((prev) => ({ ...prev, maxTokens: tokens }))
-          }
-        />
-      </div>
       <div className="mb-2 w-full">
         <PromptInput
           onChange={(e) => setPrompt(e.target.value)}
@@ -74,7 +56,7 @@ export function ChatPrompt() {
       </Button>
       {(response || isPending) && (
         <div className="mt-8 w-full max-w-5xl">
-          <Heading className="mb-4">Response ({tokens} tokens)</Heading>
+          <Heading className="mb-4">Response</Heading>
           <div className="border border-slate-300 p-4 rounded-md flex flex-col">
             {!!response && !isPending && (
               <span className="whitespace-pre-wrap">{response}</span>
