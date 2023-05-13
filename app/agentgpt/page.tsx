@@ -1,4 +1,4 @@
-import { AutoGPTPrompt } from "@/features/autogpt";
+import { AgentGPTPrompt } from "@/features/agentgpt";
 import { useProtectedServerRoute } from "@/hooks/useProtectedServerRoute";
 
 export default async function AutoGPT() {
@@ -6,7 +6,7 @@ export default async function AutoGPT() {
 
   return (
     <div>
-      <AutoGPTPrompt />
+      <AgentGPTPrompt />
     </div>
   );
 }

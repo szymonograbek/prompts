@@ -13,7 +13,7 @@ export default function AutoGPTLayout({
   return (
     <div className="w-full">
       <Heading className="mb-6" size="large">
-        AutoGPT
+        AgentGPT
       </Heading>
       {children}
     </div>

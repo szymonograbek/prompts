@@ -4,11 +4,12 @@ import { Button } from "@/components/Button";
 import { Popover, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
-interface ChatSettingsProps {
+export interface ChatSettingsProps {
   temperature: number;
   setTemperature: (value: number) => void;
   maxTokens: number;
   setMaxTokens: (value: number) => void;
+  children?: React.ReactNode;
 }
 
 export function ChatSettings({
@@ -16,6 +17,7 @@ export function ChatSettings({
   setTemperature,
   maxTokens,
   setMaxTokens,
+  children,
 }: ChatSettingsProps) {
   return (
     <Popover className="relative">
@@ -74,6 +76,7 @@ export function ChatSettings({
               />
             </div>
           </div>
+          {children}
         </Popover.Panel>
       </Transition>
     </Popover>
