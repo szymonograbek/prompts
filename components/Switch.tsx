@@ -12,14 +12,15 @@ export function Switch({ enabled, onChange }: SwitchProps) {
       checked={enabled}
       onChange={onChange}
       className={clsx(
-        "bg-gray-200 relative inline-flex h-5 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
-        enabled && "bg-blue-600"
+        "relative inline-flex h-5 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2",
+        enabled ? "bg-blue-600" : "bg-gray-200"
       )}
     >
       <span
-        className={`${
-          enabled ? "translate-x-7" : "translate-x-1"
-        } inline-block h-3 w-3 transform rounded-full bg-white transition-transform`}
+        className={clsx(
+          enabled ? "translate-x-7" : "translate-x-1",
+          "inline-block h-3 w-3 transform rounded-full bg-white transition-transform"
+        )}
       />
     </HeadlessSwitch>
   );
