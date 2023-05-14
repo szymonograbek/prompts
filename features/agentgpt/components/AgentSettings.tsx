@@ -55,14 +55,16 @@ export function AgentSettings({
         </HeadlessSwitch.Group>
         <div className="mt-4">
           <RadioGroup value={searchProvider} onChange={setSearchProvider}>
-            <RadioGroup.Label className="text-lg font-semibold mb-2">
-              Search Provider
-            </RadioGroup.Label>
+            <div className="mb-2">
+              <RadioGroup.Label className="text-xl font-bold">
+                Search Provider
+              </RadioGroup.Label>
+            </div>
             <RadioGroup.Option value={SearchProvider.BING}>
               {({ checked }) => (
                 <div
                   className={clsx(
-                    "p-2 rounded cursor-pointer",
+                    "p-2 rounded cursor-pointer text-sm",
                     checked ? "bg-blue-200" : ""
                   )}
                 >
@@ -74,7 +76,7 @@ export function AgentSettings({
               {({ checked }) => (
                 <div
                   className={clsx(
-                    "p-2 rounded cursor-pointer",
+                    "p-2 rounded cursor-pointer text-sm",
                     checked ? "bg-blue-200" : ""
                   )}
                 >

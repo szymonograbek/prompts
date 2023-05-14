@@ -2,16 +2,18 @@ import { getServerSession } from "next-auth";
 import Image from "next/image";
 import { HeaderUserDropdown } from "./HeaderUserDropdown";
 import { Button } from "./Button";
+import { Navigation } from "./Navigation";
 
 export async function Header() {
   const session = await getServerSession();
 
   return (
-    <header className="h-[56px] flex justify-end items-center px-4">
+    <header className="h-[56px] relative z-50 flex justify-between items-center px-4 bg-white mb-8">
+      <Navigation />
       {session && (
         <HeaderUserDropdown>
           <Button className="flex items-center px-2 -mr-2" variant="ghost">
-            <span className="text-slate-800 mr-4">{session.user?.name}</span>
+            <span className="text-gray-900 mr-4">{session.user?.name}</span>
             <Image
               src={session.user?.image ?? ""}
               className="rounded-full"

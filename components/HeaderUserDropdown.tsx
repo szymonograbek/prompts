@@ -23,7 +23,7 @@ export function HeaderUserDropdown({
         leaveFrom="transform opacity-100"
         leaveTo="transform opacity-0"
       >
-        <Menu.Items className="absolute right-0 mt-1 w-56 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 p-1">
+        <Menu.Items className="absolute right-0 mt-1 w-56 rounded-md font-medium text-gray-900 shadow-lg ring-1 ring-black ring-opacity-5 p-1 bg-white">
           <Menu.Item as={ButtonWithIcon}>Sign out</Menu.Item>
         </Menu.Items>
       </Transition>
@@ -36,7 +36,8 @@ const ButtonWithIcon = ({ children, ...props }: ButtonProps) => (
     onClick={() => signOut()}
     className="w-full"
     variant="ghost"
-    rightIcon={<ArrowRightOnRectangleIcon className="h-4 text-slate-600" />}
+    colorScheme="blue"
+    rightIcon={<ArrowRightOnRectangleIcon className="h-5" />}
     {...props}
   >
     {children}

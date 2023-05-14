@@ -16,8 +16,8 @@ export function AgentGPTPrompt() {
   const [response, setResponse] = useState<Array<string>>([]);
   const [isPending, setPending] = useState(false);
   const [settings, setSettings] = useState<AgentGPTRequest["params"]>({
-    temperature: 0,
-    maxTokens: 256,
+    temperature: 0.1,
+    maxTokens: 512,
     calculator: true,
     webBrowser: true,
     search: true,
@@ -97,6 +97,7 @@ export function AgentGPTPrompt() {
         <PromptInput
           onChange={(e) => setPrompt(e.target.value)}
           value={prompt}
+          placeholder="Write a weather report for Wrocław, Poland, today"
         />
       </div>
       <Button
