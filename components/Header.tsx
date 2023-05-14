@@ -9,20 +9,22 @@ export async function Header() {
 
   return (
     <header className="h-[56px] relative z-50 flex justify-between items-center px-4 bg-white mb-8">
-      <Navigation />
       {session && (
-        <HeaderUserDropdown>
-          <Button className="flex items-center px-2 -mr-2" variant="ghost">
-            <span className="text-gray-900 mr-4">{session.user?.name}</span>
-            <Image
-              src={session.user?.image ?? ""}
-              className="rounded-full"
-              alt="user avatar"
-              height={32}
-              width={32}
-            />
-          </Button>
-        </HeaderUserDropdown>
+        <>
+          <Navigation />
+          <HeaderUserDropdown>
+            <Button className="flex items-center px-2 -mr-2" variant="ghost">
+              <span className="text-gray-900 mr-4">{session.user?.name}</span>
+              <Image
+                src={session.user?.image ?? ""}
+                className="rounded-full"
+                alt="user avatar"
+                height={32}
+                width={32}
+              />
+            </Button>
+          </HeaderUserDropdown>
+        </>
       )}
     </header>
   );

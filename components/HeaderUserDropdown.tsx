@@ -4,7 +4,7 @@ import { Menu, Transition } from "@headlessui/react";
 import { signOut } from "next-auth/react";
 import { ArrowRightOnRectangleIcon } from "@heroicons/react/24/outline";
 import { Fragment } from "react";
-import { Button, ButtonProps } from "./Button";
+import { Button } from "./Button";
 
 export function HeaderUserDropdown({
   children,
@@ -24,22 +24,19 @@ export function HeaderUserDropdown({
         leaveTo="transform opacity-0"
       >
         <Menu.Items className="absolute right-0 mt-1 w-56 rounded-md font-medium text-gray-900 shadow-lg ring-1 ring-black ring-opacity-5 p-1 bg-white">
-          <Menu.Item as={ButtonWithIcon}>Sign out</Menu.Item>
+          <Menu.Item>
+            <Button
+              onClick={() => signOut()}
+              className="w-full"
+              variant="ghost"
+              colorScheme="blue"
+              rightIcon={<ArrowRightOnRectangleIcon className="h-5" />}
+            >
+              Sign Out
+            </Button>
+          </Menu.Item>
         </Menu.Items>
       </Transition>
     </Menu>
   );
 }
-
-const ButtonWithIcon = ({ children, ...props }: ButtonProps) => (
-  <Button
-    onClick={() => signOut()}
-    className="w-full"
-    variant="ghost"
-    colorScheme="blue"
-    rightIcon={<ArrowRightOnRectangleIcon className="h-5" />}
-    {...props}
-  >
-    {children}
-  </Button>
-);

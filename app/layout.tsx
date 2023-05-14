@@ -19,9 +19,11 @@ export default function RootLayout({
     <Providers>
       <html lang="en">
         <body className={inter.className}>
-          {/* @ts-expect-error Async Server Component */}
-          <Header />
-          <main className="px-4 pb-4">{children}</main>
+          <div className="md:px-12">
+            {/* @ts-expect-error Async Server Component */}
+            <Header />
+            <main className="px-4 pb-4">{children}</main>
+          </div>
         </body>
       </html>
     </Providers>

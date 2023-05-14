@@ -31,7 +31,7 @@ export function ChatSettings({
         leaveFrom="transform opacity-100"
         leaveTo="transform opacity-0"
       >
-        <Popover.Panel className="absolute left-0 mt-1 bg-white w-56 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 p-4">
+        <Popover.Panel className="absolute left-0 mt-1 bg-white w-64 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 p-6">
           <div className="mb-4">
             <label
               htmlFor="price"

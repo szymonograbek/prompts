@@ -36,13 +36,13 @@ export function AgentSettings({
       maxTokens={maxTokens}
       setMaxTokens={setMaxTokens}
     >
-      <div className="mt-4">
+      <div className="mt-6">
         <h2 className="text-xl font-bold mb-2">Tools</h2>
         <HeadlessSwitch.Group>
           <div className="flex flex-col border px-2 rounded">
             {tools.map((tool, index) => (
               <Fragment key={tool.key}>
-                <div className="py-2 flex items-center">
+                <div className="py-2 px-2 flex items-center justify-between">
                   <HeadlessSwitch.Label className="mr-2 text-sm font-medium leading-6 text-gray-900">
                     {tool.name}
                   </HeadlessSwitch.Label>
@@ -53,7 +53,7 @@ export function AgentSettings({
             ))}
           </div>
         </HeadlessSwitch.Group>
-        <div className="mt-4">
+        <div className="mt-6">
           <RadioGroup value={searchProvider} onChange={setSearchProvider}>
             <div className="mb-2">
               <RadioGroup.Label className="text-xl font-bold">
@@ -64,7 +64,7 @@ export function AgentSettings({
               {({ checked }) => (
                 <div
                   className={clsx(
-                    "p-2 rounded cursor-pointer text-sm",
+                    "p-2 rounded cursor-pointer text-sm mb-1",
                     checked ? "bg-blue-200" : ""
                   )}
                 >
