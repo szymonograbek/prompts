@@ -1,0 +1,15 @@
+diff --git a/node_modules/langchain/dist/tools/bingserpapi.js b/node_modules/langchain/dist/tools/bingserpapi.js
+index d0c680c..dbce465 100644
+--- a/node_modules/langchain/dist/tools/bingserpapi.js
++++ b/node_modules/langchain/dist/tools/bingserpapi.js
+@@ -53,8 +53,8 @@ class BingSerpAPI extends Tool {
+             return "No good results found.";
+         }
+         const snippets = results
+-            .map((result) => result.snippet)
+-            .join(" ");
++            .map((result) => `Website ${result.url} with snippet: ${result.snippet}`)
++            .join(" ### ");
+         return snippets;
+     }
+ }

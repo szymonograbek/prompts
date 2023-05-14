@@ -16,7 +16,7 @@ export function AgentGPTPrompt() {
   const [response, setResponse] = useState<Array<string>>([]);
   const [isPending, setPending] = useState(false);
   const [settings, setSettings] = useState<AgentGPTRequest["params"]>({
-    temperature: 0.1,
+    temperature: 0,
     maxTokens: 512,
     calculator: true,
     webBrowser: true,

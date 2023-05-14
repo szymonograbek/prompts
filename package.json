@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
@@ -24,6 +25,7 @@
     "langchain": "^0.0.71",
     "next": "13.4.1",
     "next-auth": "^4.22.1",
+    "patch-package": "^7.0.0",
     "postcss": "8.4.23",
     "react": "18.2.0",
     "react-dom": "18.2.0",

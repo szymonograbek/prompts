@@ -62,7 +62,9 @@ export async function POST(request: Request) {
   }
 
   if (webBrowser) {
-    tools.push(new WebBrowser({ model, embeddings }));
+    const browser = new WebBrowser({ model, embeddings });
+    browser.description = `useful for when you need to find something on or summarize a webpage. input should be a comma separated list of "ONE valid http URL including protocol","what you want to find on the page".`;
+    tools.push(browser);
   }
 
   const encoder = new TextEncoder();
