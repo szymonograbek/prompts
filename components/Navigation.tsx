@@ -58,8 +58,8 @@ function NavLink({
     <Link
       href={href}
       className={clsx(
-        "text-md font-medium py-2 px-3 hover:text-blue-700 text-gray-900 transition-colors rounded hover:bg-blue-100 md:hover:bg-transparent",
-        active && "text-blue-700",
+        "text-md font-medium py-2 px-3 hover:text-blue-700  transition-colors rounded hover:bg-blue-100 md:hover:bg-transparent",
+        active ? "text-blue-700" : "text-gray-900",
         className
       )}
     >
